@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/widgets/task-item.dart';
 
 class TasksScreen extends StatelessWidget {
   @override
@@ -6,9 +7,9 @@ class TasksScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.lightBlueAccent,
-        child: Icon(Icons.add),
-        onPressed: null),
+          backgroundColor: Colors.lightBlueAccent,
+          child: Icon(Icons.add),
+          onPressed: () {}),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -42,16 +43,22 @@ class TasksScreen extends StatelessWidget {
                   ),
                 ]),
           ),
-            Expanded(
-                child: Container(
-                  height: 300,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(30),
-                          topLeft: Radius.circular(30))),
-                ),
-              )
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              height: 300,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(30),
+                      topLeft: Radius.circular(30))),
+              child: ListView(children: <Widget>[
+                TaskItem(taskName: 'Buy Milk', isTaskCompleted: false),
+                TaskItem(taskName: 'Buy Milk', isTaskCompleted: false),
+                TaskItem(taskName: 'Buy Milk', isTaskCompleted: false),
+              ]),
+            ),
+          )
         ],
       ),
     );

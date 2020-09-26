@@ -18,6 +18,6 @@ class TaskItem extends StatelessWidget {
                 : TextDecoration.none,
           ),
         ),
-        trailing: Checkbox(value: false, onChanged: null));
+        trailing: Checkbox(value: isTaskCompleted, onChanged: null));
   }
 }

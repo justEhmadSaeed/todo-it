@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/screens/add_tasks_screen.dart';
-import 'package:todo_app/widgets/task-item.dart';
+import '../widgets/task-list.dart';
 
 class TasksScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,11 +56,7 @@ class TasksScreen extends StatelessWidget {
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(30),
                       topLeft: Radius.circular(30))),
-              child: ListView(children: <Widget>[
-                TaskItem(taskName: 'Buy Milk', isTaskCompleted: false),
-                TaskItem(taskName: 'Buy Milk', isTaskCompleted: false),
-                TaskItem(taskName: 'Buy Milk', isTaskCompleted: false),
-              ]),
+              child: TaskList(),
             ),
           )
         ],

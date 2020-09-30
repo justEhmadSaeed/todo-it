@@ -12,12 +12,6 @@ class TaskItem extends StatefulWidget {
 class _TaskItemState extends State<TaskItem> {
   bool isChecked = false;
 
-  void checkboxCallback(bool checkboxState) {
-    setState(() {
-      isChecked = checkboxState;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -29,7 +23,12 @@ class _TaskItemState extends State<TaskItem> {
         ),
       ),
       trailing: TaskCheckbox(
-          checkboxState: isChecked, toggleCheckboxState: checkboxCallback),
+          checkboxState: isChecked,
+          toggleCheckboxState: (bool checkboxState) {
+            setState(() {
+              isChecked = checkboxState;
+            });
+          }),
     );
   }
 }

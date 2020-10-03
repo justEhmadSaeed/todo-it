@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_app/screens/add_tasks_screen.dart';
 import '../widgets/task-list.dart';
 import 'package:todo_app/models/task.dart';
+import 'package:todo_app/constants.dart';
 
 class TasksScreen extends StatefulWidget {
   @override
@@ -17,9 +18,9 @@ class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: constPurpleColor,
       floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.lightBlueAccent,
+          backgroundColor: constPurpleColor,
           child: Icon(Icons.add),
           onPressed: () {
             showModalBottomSheet(
@@ -46,7 +47,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   CircleAvatar(
                     child: Icon(
                       Icons.list,
-                      color: Colors.lightBlueAccent,
+                      color: constPurpleColor,
                       size: 30,
                     ),
                     backgroundColor: Colors.white,

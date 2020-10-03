@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/constants.dart';
 
 class AddTaskScreen extends StatelessWidget {
   AddTaskScreen({this.addTaskAction});
@@ -8,7 +9,7 @@ class AddTaskScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xff757575),
+      color: Color(0xFF757575),
       child: Container(
         padding: EdgeInsets.all(30),
         decoration: BoxDecoration(
@@ -22,10 +23,11 @@ class AddTaskScreen extends StatelessWidget {
               Text(
                 'Add Task',
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.lightBlueAccent, fontSize: 30),
+                style: TextStyle(color: constPurpleColor, fontSize: 30),
               ),
               TextField(
                 autofocus: true,
+                cursorColor: constPurpleColor,
                 textAlign: TextAlign.center,
                 onChanged: (value) {
                   newTaskTitle = value;
@@ -34,7 +36,7 @@ class AddTaskScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(top: 10),
                 child: FlatButton(
-                    color: Colors.lightBlueAccent,
+                    color: constPurpleColor,
                     child: Text(
                       'Add',
                       style: TextStyle(

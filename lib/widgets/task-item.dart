@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/constants.dart';
 
 class TaskItem extends StatelessWidget {
   final bool isChecked;
@@ -17,7 +18,7 @@ class TaskItem extends StatelessWidget {
         ),
       ),
       trailing: Checkbox(
-        activeColor: Colors.lightBlueAccent,
+        activeColor: constPurpleColor,
         value: isChecked,
         onChanged: checkboxCallback,
       ),

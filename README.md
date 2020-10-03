@@ -1,16 +1,18 @@
-# ToDo it
+<div align="center">
+	<h1>To-Do it ✔<br>
+	<img alt="version: 1.0.0" src="https://img.shields.io/badge/version-v1.0.0-blue">
+	<img alt="license: MIT" src="https://img.shields.io/badge/license-MIT-red">
+	</h1>
+</div>
 
-A new Flutter project.
+<p align='center'>
+A simple & elegant app to keep track of your activities.
+</p>
 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## ▶ Preview
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![todo-app](https://user-images.githubusercontent.com/46846821/95003692-f2e52b00-05fa-11eb-8a97-329b96c1df1d.gif)

@@ -9,9 +9,9 @@
 A simple & elegant app to keep track of your activities.
 </p>
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
+## 🐱‍🚀 Installation
+If you want to try this app in your android device, then all you need to do is:
+- Go to release & download compatible apk to enjoy the To-do it app 🤞
 
 ## ▶ Preview
 

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/constants.dart';
+import 'package:todo_app/models/task-data.dart';
+import 'package:provider/provider.dart';
 
 class AddTaskScreen extends StatelessWidget {
-  AddTaskScreen({this.addTaskAction});
-
-  final Function addTaskAction;
   String newTaskTitle;
   @override
   Widget build(BuildContext context) {
@@ -44,7 +43,9 @@ class AddTaskScreen extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      addTaskAction(newTaskTitle);
+                      Provider.of<TaskData>(context, listen: false)
+                          .addTask(newTaskTitle);
+                      Navigator.pop(context);
                     }),
               )
             ]),

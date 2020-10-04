@@ -13,6 +13,8 @@ class TaskData extends ChangeNotifier {
   int get taskCount => _tasks.length;
 
   void addTask(String taskTitle) {
+    if (taskTitle?.isEmpty ?? true) return;
+
     _tasks.add(Task(name: taskTitle));
     notifyListeners();
   }

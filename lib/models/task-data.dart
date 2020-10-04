@@ -8,4 +8,11 @@ class TaskData extends ChangeNotifier {
     Task(name: 'Buy Eggs'),
     Task(name: 'Buy Books'),
   ];
+
+  int get taskCount => tasks.length;
+
+  void toggleCheckBox(index) {
+    tasks[index].toggleDone();
+    notifyListeners();
+  }
 }

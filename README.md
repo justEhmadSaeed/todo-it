@@ -9,9 +9,17 @@
 A simple & elegant app to keep track of your activities.
 </p>
 
+## 🔥 Features
+
+- Add your todos.
+- Toggle the checkbox to cross/uncross todos.
+- Long press the todo to delete it.
+
 ## 🐱‍🚀 Installation
+
 If you want to try this app in your android device, then all you need to do is:
-- Go to release & download compatible apk to enjoy the To-do it app 🤞
+
+- Go to the release page of this repo & download the compatible apk(armx64 for android) to enjoy the app 🤞
 
 ## ▶ Preview
 

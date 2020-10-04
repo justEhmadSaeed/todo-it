@@ -19,8 +19,8 @@ class TaskData extends ChangeNotifier {
     notifyListeners();
   }
 
-  void toggleCheckBox(index) {
-    _tasks[index].toggleDone();
+  void toggleCheckBox(task) {
+    task.toggleDone();
     notifyListeners();
   }
 }

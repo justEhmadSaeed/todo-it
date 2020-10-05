@@ -1,6 +1,6 @@
 <div align="center">
 	<h1>To-Do it ✔<br>
-	<img alt="version: 1.3.0" src="https://img.shields.io/badge/version-v1.3.0-blue">
+	<img alt="version: 1.4.1" src="https://img.shields.io/badge/version-v1.4.1-blue">
 	<img alt="license: MIT" src="https://img.shields.io/badge/license-MIT-red">
 	</h1>
 </div>

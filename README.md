@@ -12,8 +12,9 @@ A simple & elegant app to keep track of your activities.
 ## 🔥 Features
 
 - Add your todos.
-- Toggle the checkbox to cross/uncross todos.
-- Long press the todo to delete it.
+- Toggle the checkbox to complete your todos or revert the crossed todos.
+- Long press a todo to delete it.
+- Local Backup for your todos to use offline.
 
 ## 📥 Installation
 

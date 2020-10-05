@@ -6,17 +6,19 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class TaskData extends ChangeNotifier {
   TaskData() {
-    readPref();
+    _readPref();
   }
   List<Task> _tasks = [];
+  SharedPreferences prefs;
 
   void _writePref(String taskTitle, bool isChecked) async {
-    final prefs = await SharedPreferences.getInstance();
+    if (prefs == null) prefs = await SharedPreferences.getInstance();
     prefs.setBool(taskTitle, isChecked);
   }
 
-  void readPref() async {
-    final prefs = await SharedPreferences.getInstance();
+  void _readPref() async {
+    if (prefs == null) prefs = await SharedPreferences.getInstance();
+
     final keys = prefs.getKeys() ?? null;
     if (keys == null) return;
 
@@ -24,6 +26,12 @@ class TaskData extends ChangeNotifier {
       _tasks.add(Task(name: key, isDone: prefs.get(key)));
     }
     notifyListeners();
+  }
+
+  void _deletePref(String title) async {
+    if (prefs == null) prefs = await SharedPreferences.getInstance();
+
+    prefs.remove(title);
   }
 
   UnmodifiableListView<Task> get tasks => UnmodifiableListView(_tasks);
@@ -44,6 +52,7 @@ class TaskData extends ChangeNotifier {
 
   void deleteTask(Task task) {
     _tasks.remove(task);
+    _deletePref(task.name);
     notifyListeners();
   }
 

@@ -10,6 +10,14 @@ class TaskData extends ChangeNotifier {
   }
   List<Task> _tasks = [];
   SharedPreferences prefs;
+  bool darkTheme = false;
+
+  UnmodifiableListView<Task> get tasks => UnmodifiableListView(_tasks);
+
+  void toggleDarkTheme() {
+    darkTheme = !darkTheme;
+    notifyListeners();
+  }
 
   void _writePref(String taskTitle, bool isChecked) async {
     if (prefs == null) prefs = await SharedPreferences.getInstance();
@@ -34,7 +42,6 @@ class TaskData extends ChangeNotifier {
     prefs.remove(title);
   }
 
-  UnmodifiableListView<Task> get tasks => UnmodifiableListView(_tasks);
   int get taskCount => _tasks.length;
 
   void addTask(String taskTitle) {

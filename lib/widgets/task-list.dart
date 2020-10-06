@@ -14,6 +14,7 @@ class TaskList extends StatelessWidget {
           return TaskItem(
             taskTitle: currentTask.name,
             isChecked: currentTask.isDone,
+            darkTheme: taskData.darkTheme,
             checkboxCallback: (checkboxState) {
               taskData.toggleCheckBox(currentTask);
             },

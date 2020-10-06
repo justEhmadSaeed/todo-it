@@ -7,12 +7,14 @@ class AddTaskScreen extends StatelessWidget {
   String newTaskTitle;
   @override
   Widget build(BuildContext context) {
+    bool darkTheme = Provider.of<TaskData>(context).darkTheme;
+
     return Container(
-      color: Color(0xFF757575),
+      color: darkTheme ? Color(0xFF1B1B1B) : Color(0xFF757575),
       child: Container(
         padding: EdgeInsets.all(30),
         decoration: BoxDecoration(
-            color: Colors.white,
+            color: darkTheme ? constgreyColor : Colors.white,
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20), topRight: Radius.circular(20))),
         // height: 350,
@@ -22,12 +24,16 @@ class AddTaskScreen extends StatelessWidget {
               Text(
                 'Add Task',
                 textAlign: TextAlign.center,
-                style: TextStyle(color: constPurpleColor, fontSize: 30),
+                style: TextStyle(
+                    color: darkTheme ? Colors.white : constPurpleColor,
+                    fontSize: 30),
               ),
               TextField(
                 autofocus: true,
-                cursorColor: constPurpleColor,
+                cursorColor: darkTheme ? Colors.white : constPurpleColor,
                 textAlign: TextAlign.center,
+                style:
+                    TextStyle(color: darkTheme ? Colors.white : Colors.black),
                 onChanged: (value) {
                   newTaskTitle = value;
                 },

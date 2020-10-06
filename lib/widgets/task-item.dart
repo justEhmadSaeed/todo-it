@@ -6,12 +6,14 @@ class TaskItem extends StatelessWidget {
   final String taskTitle;
   final Function checkboxCallback;
   final Function deleteCallback;
+  final bool darkTheme;
 
   TaskItem(
       {this.isChecked,
       this.taskTitle,
       this.checkboxCallback,
-      this.deleteCallback});
+      this.deleteCallback,
+      this.darkTheme});
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +22,7 @@ class TaskItem extends StatelessWidget {
       title: Text(
         taskTitle,
         style: TextStyle(
+          color: darkTheme ? Colors.white : Colors.black,
           fontSize: 18,
           decoration: isChecked ? TextDecoration.lineThrough : null,
         ),

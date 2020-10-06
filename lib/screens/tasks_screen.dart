@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 class TasksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    bool darkTheme = Provider.of<TaskData>(context).darkTheme;
     return Scaffold(
       backgroundColor: constPurpleColor,
       floatingActionButton: FloatingActionButton(
@@ -25,14 +26,21 @@ class TasksScreen extends StatelessWidget {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  CircleAvatar(
-                    child: Icon(
-                      Icons.list,
-                      color: constPurpleColor,
-                      size: 30,
+                  FloatingActionButton(
+                    onPressed: () {
+                      Provider.of<TaskData>(context, listen: false)
+                          .toggleDarkTheme();
+                    },
+                    child: CircleAvatar(
+                      child: Icon(
+                        Icons.list,
+                        color: darkTheme ? Colors.white : constPurpleColor,
+                        size: 30,
+                      ),
+                      backgroundColor:
+                          darkTheme ? constgreyColor : Colors.white,
+                      radius: 30,
                     ),
-                    backgroundColor: Colors.white,
-                    radius: 30,
                   ),
                   SizedBox(
                     height: 10,
@@ -55,7 +63,7 @@ class TasksScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 20),
               height: 300,
               decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: darkTheme ? constgreyColor : Colors.white,
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(30),
                       topLeft: Radius.circular(30))),

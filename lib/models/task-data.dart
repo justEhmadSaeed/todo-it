@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class TaskData extends ChangeNotifier {
   TaskData() {
     _readPref();
+    _readTheme();
   }
   List<Task> _tasks = [];
   SharedPreferences prefs;
@@ -14,8 +15,16 @@ class TaskData extends ChangeNotifier {
 
   UnmodifiableListView<Task> get tasks => UnmodifiableListView(_tasks);
 
-  void toggleDarkTheme() {
+  void toggleDarkTheme() async {
     darkTheme = !darkTheme;
+    notifyListeners();
+    if (prefs == null) prefs = await SharedPreferences.getInstance();
+    prefs.setBool('DARKTHEME_UNIQUE', darkTheme);
+  }
+
+  void _readTheme() async {
+    if (prefs == null) prefs = await SharedPreferences.getInstance();
+    darkTheme = prefs.getBool('DARKTHEME_UNIQUE') ?? false;
     notifyListeners();
   }
 
@@ -27,7 +36,8 @@ class TaskData extends ChangeNotifier {
   void _readPref() async {
     if (prefs == null) prefs = await SharedPreferences.getInstance();
 
-    final keys = prefs.getKeys() ?? null;
+    var keys = prefs.getKeys() ?? null;
+    keys = keys.where((element) => element != 'DARKTHEME_UNIQUE').toSet();
     if (keys == null) return;
 
     for (String key in keys) {

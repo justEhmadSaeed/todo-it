@@ -29,21 +29,20 @@ class TasksScreen extends StatelessWidget {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  FloatingActionButton(
-                    onPressed: () {
-                      Provider.of<TaskData>(context, listen: false)
-                          .toggleDarkTheme();
-                    },
-                    child: CircleAvatar(
-                      child: Icon(
-                        Icons.list,
+                  CircleAvatar(
+                    child: IconButton(
+                      onPressed: () {
+                        Provider.of<TaskData>(context, listen: false)
+                            .toggleDarkTheme();
+                      },
+                      icon: Icon(
+                        darkTheme ? Icons.wb_sunny : Icons.brightness_3,
                         color: darkTheme ? Colors.white : constPurpleColor,
                         size: 30,
                       ),
-                      backgroundColor:
-                          darkTheme ? constgreyColor : Colors.white,
-                      radius: 30,
                     ),
+                    backgroundColor: darkTheme ? constgreyColor : Colors.white,
+                    radius: 30,
                   ),
                   SizedBox(
                     height: 10,

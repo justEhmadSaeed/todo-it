@@ -26,39 +26,66 @@ class TasksScreen extends StatelessWidget {
         children: <Widget>[
           Container(
             padding: EdgeInsets.only(top: 60, left: 30, right: 30, bottom: 30),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  CircleAvatar(
-                    child: IconButton(
-                      onPressed: () {
-                        Provider.of<TaskData>(context, listen: false)
-                            .toggleDarkTheme();
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: <
+                    Widget>[
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                CircleAvatar(
+                  child: Icon(
+                    Icons.list,
+                    color: darkTheme ? Colors.white : constPurpleColor,
+                    size: 30,
+                  ),
+                  backgroundColor: darkTheme ? constgreyColor : Colors.white,
+                  radius: 30,
+                ),
+                CircleAvatar(
+                  child: IconButton(
+                    onPressed: () {
+                      Provider.of<TaskData>(context, listen: false)
+                          .toggleDarkTheme();
+                    },
+                    icon: AnimatedSwitcher(
+                      duration: Duration(milliseconds: 1000),
+                      transitionBuilder:
+                          (Widget child, Animation<double> animation) {
+                        return RotationTransition(
+                            child: child, turns: animation);
                       },
-                      icon: Icon(
-                        darkTheme ? Icons.wb_sunny : Icons.brightness_3,
-                        color: darkTheme ? Colors.white : constPurpleColor,
-                        size: 30,
-                      ),
+                      child: darkTheme
+                          ? Icon(
+                              Icons.wb_sunny,
+                              color: Colors.white,
+                              size: 30,
+                              key: UniqueKey(),
+                            )
+                          : Icon(
+                              Icons.brightness_3,
+                              color: constPurpleColor,
+                              key: UniqueKey(),
+                              size: 30,
+                            ),
                     ),
-                    backgroundColor: darkTheme ? constgreyColor : Colors.white,
-                    radius: 30,
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'To-Do it',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 50,
-                        fontWeight: FontWeight.w700),
-                  ),
-                  Text(
-                    '${Provider.of<TaskData>(context).taskCount} Tasks',
-                    style: TextStyle(color: Colors.white, fontSize: 18),
-                  ),
-                ]),
+                  backgroundColor: darkTheme ? constgreyColor : Colors.white,
+                  radius: 30,
+                ),
+              ]),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                'To-Do it',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 50,
+                    fontWeight: FontWeight.w700),
+              ),
+              Text(
+                '${Provider.of<TaskData>(context).taskCount} Tasks',
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+            ]),
           ),
           Expanded(
             child: Container(

@@ -6,8 +6,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class TaskData extends ChangeNotifier {
   TaskData() {
-    _readPref();
     _readTheme();
+    _readTasks();
   }
   List<Task> _tasks = [];
   SharedPreferences prefs;
@@ -33,7 +33,7 @@ class TaskData extends ChangeNotifier {
     prefs.setBool(taskTitle, isChecked);
   }
 
-  void _readPref() async {
+  void _readTasks() async {
     if (prefs == null) prefs = await SharedPreferences.getInstance();
 
     var keys = prefs.getKeys() ?? null;

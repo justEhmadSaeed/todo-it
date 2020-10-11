@@ -45,27 +45,19 @@ class TasksScreen extends StatelessWidget {
                       Provider.of<TaskData>(context, listen: false)
                           .toggleDarkTheme();
                     },
-                    icon: AnimatedSwitcher(
-                      duration: Duration(milliseconds: 1000),
-                      transitionBuilder:
-                          (Widget child, Animation<double> animation) {
-                        return RotationTransition(
-                            child: child, turns: animation);
-                      },
-                      child: darkTheme
-                          ? Icon(
-                              Icons.wb_sunny,
-                              color: Colors.white,
-                              size: 30,
-                              key: UniqueKey(),
-                            )
-                          : Icon(
-                              Icons.brightness_3,
-                              color: constPurpleColor,
-                              key: UniqueKey(),
-                              size: 30,
-                            ),
-                    ),
+                    icon: darkTheme
+                        ? Icon(
+                            Icons.wb_sunny,
+                            color: Colors.white,
+                            size: 30,
+                            key: UniqueKey(),
+                          )
+                        : Icon(
+                            Icons.brightness_3,
+                            color: constPurpleColor,
+                            key: UniqueKey(),
+                            size: 30,
+                          ),
                   ),
                   backgroundColor: darkTheme ? constgreyColor : Colors.white,
                   radius: 30,

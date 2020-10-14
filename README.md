@@ -15,6 +15,7 @@ A simple & elegant app to keep track of your activities.
 - Toggle the checkbox to complete your todos or revert the crossed todos.
 - Long press a todo to delete it.
 - Local Backup for your todos to use offline.
+- Dark Mode
 
 ## 📥 Installation
 
